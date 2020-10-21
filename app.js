@@ -5,13 +5,16 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const mongoose = require('mongoose');
 const methodOverride = require('method-override');
+require('dotenv').config();
 
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/Users/userRoutes');
-const wordRoutes = require('./routes/Words/wordRoutes');
+const wordRouter = require('./routes/Words/wordRoutes');
+
+const app = express();
 
 mongoose
-  .connect(env.MONGODB_URI, {
+  .connect(process.env.MONGODB_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useCreateIndex: true,

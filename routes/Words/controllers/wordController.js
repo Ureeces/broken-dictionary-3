@@ -68,7 +68,8 @@ module.exports = {
 
         foundWord.meaning = req.body.meaning;
 
-        foundWord.save().then(() => {
+        foundWord.save()
+        .then(() => {
           return res.redirect(`/api/v1/words/single-word/${req.params.wordId}`);
         });
       })
